@@ -4,7 +4,7 @@ GPIO.setmode(GPIO.BCM)
 leds=[16,20,21,25,26,17,27,22]
 GPIO.setup(leds, GPIO.OUT)
 GPIO.output(leds,0)
-dynamic_range=3.3
+dynamic_range=3.14
 
 def number_to_dac(x):
     return [int(element) for element in bin(x)[2:].zfill(8)]
