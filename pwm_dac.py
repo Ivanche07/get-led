@@ -2,8 +2,7 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 led=12
 GPIO.setup(led, GPIO.OUT)
-brightness=100
-pwm=GPIO.PWM(led,brightness)
+pwm=GPIO.PWM(led,1000)
 dynamic_range_max=3.14
 duty=0.0
 pwm.start(duty)
@@ -25,7 +24,7 @@ class PWM_DAC:
             if not (0.0 <= voltage <= self.dynamic_range):
                 print(f"Напряжение выходит за динамический диапазон ЦАП (0.00 - {self.dynamic_range:.2f} В)")
             else:    
-                duty=brightness*voltage/dynamic_range_max
+                duty=100*voltage/dynamic_range_max
                 pwm.ChangeDutyCycle(duty)
                 print(f"Коэффициент заполнения:{voltage/dynamic_range_max}")
 
