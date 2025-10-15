@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
 leds=[16,20,21,25,26,17,27,22]
-GPIO.setup(leds, GPIO.OUT)
-GPIO.output(leds,0)
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(leds, GPIO.OUT)
+#GPIO.output(leds,0)
 dynamic_range1=3.14
 class R2R_DAC:
     def __init__(self, gpio_bits, dynamic_range, verbose = False):
