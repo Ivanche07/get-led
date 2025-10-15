@@ -1,1 +1,2 @@
 get_sin_wave_amplitude(freq, time)
+wait_for_sampling_period(sampling_frequency)
