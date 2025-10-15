@@ -52,5 +52,5 @@ if __name__ == "__main__":
         dac.deinit()
 '''Не забыть про команды:
 raspi-gpio set 2 a0
-raspi-gpio set 2 a0
+raspi-gpio set 3 a0
 raspi-gpio get'''
