@@ -1,3 +1,5 @@
+import RPi.GPIO as GPIO
+import time as t
 class R2R_ADC:
     def __init__(self, dynamic_range, compare_time = 0.01, verbose = False):
         self.dynamic_range = dynamic_range
@@ -10,3 +12,6 @@ class R2R_ADC:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.bits_gpio, GPIO.OUT, initial = 0)
         GPIO.setup(self.comp_gpio, GPIO.IN)
+    def number_to_dac(self, number):
+    def sequential_counting_adc(self):
+    def get_sc_voltage(self):
