@@ -28,16 +28,16 @@ class R2R_ADC:
             time.sleep(self.compare_time)
             compValue = GPIO.input(self.comp_gpio)
             if(compValue==1):
-                print(value)
+                #print(value)
                 return value
-        return self.dynamic_range
+        return 256
     
 if __name__ == "__main__":
     try:
-        dac = R2R_ADC(3.14,0.01,True)
+        dac = R2R_ADC(3.278,0.01,True)
         while True:
             try:
-                voltage=dac.sequential_counting_adc()
+                voltage=(dac.sequential_counting_adc()/256)*dac.dynamic_range
                 print(voltage)
             except ValueError:
                 print("Как ты сюда попал?\n")
