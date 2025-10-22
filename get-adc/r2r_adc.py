@@ -28,7 +28,6 @@ class R2R_ADC:
             time.sleep(self.compare_time)
             compValue = GPIO.input(self.comp_gpio)
             if(compValue==1):
-                #print(value)
                 return value
         return 256
     
