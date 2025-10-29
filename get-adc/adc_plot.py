@@ -1,27 +1,14 @@
-import matplotlib.pyplot as plt
-def plot_voltage_vs_time(time,voltage,max_voltage):
-    plt.figures(figsize=(10,6))
+#from scipy.optimize import curve_fit
+#import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
+def plot_voltage_vs_time(time, voltage, max_voltage):
+    plt.figure(figsize=(10,6))
+    plt.ylabel("Напряжение, U (В)")
+    plt.xlabel("Время, T (с)")
+    plt.title("График напрядений на входе АЦП ПС")
+    plt.xlim(0,4)
+    plt.ylim(0,3.5)
+    plt.grid(True, alpha=0.3, linestyle='-', linewidth=0.5)
     plt.plot(time,voltage)
-    plt.show
-class R2R_ADC:
-    def __init__(self):
-    def deinit(self):
-        GPIO.output(self.bits_gpio, 0)
-        GPIO.cleanup()
-        print("GPIO have been cleaned")
-
-if __name__ == "__main__":
-    try:
-        dac = R2R_ADC()
-        voltage_values=[]
-        time_values=[]
-        duration=3.0
-        while True:
-            try:
-                voltage=(dac.sequential_counting_adc()/256)*dac.dynamic_range
-                print(voltage)
-            except ValueError:
-                print("Как ты сюда попал?\n")
-
-    finally:
-        dac.deinit()
+    plt.show()
+    plt.savefig('for_adc_plot.png', dpi=300)
